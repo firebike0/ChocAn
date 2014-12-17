@@ -76,18 +76,16 @@ public class ManagerInterface
 			}
 
 			//Get the end date
-			Date endDate = ui.promptForDate("End date of week (" 
-					+ UserInterface.DATE_FORMAT + "): ");
+			Date endDate = ui.promptForDate("End date of week ("  + UserInterface.DATE_FORMAT + "): ");
 
 			//Generate report for specified week
-			ProviderReportGenerator generator 
-			= new ProviderReportGenerator(theProvider, endDate);
+			ProviderReportGenerator generator = new ProviderReportGenerator(theProvider, endDate);
 			ProviderReport report = generator.getReport();
 
 			//Display the report
 			report.display(ui);
 
-			//"Print" (save the report to a file) if the user wishes
+			//Save the report to a file, "print", if the user wishes
 			String answer = ui.promptForString("Save the report? (Y)es or (N)o: ");
 			if (answer != null && answer.length() >= 1 &&			
 					Character.toUpperCase(answer.charAt(0)) == 'Y')
@@ -125,18 +123,16 @@ public class ManagerInterface
 			}
 
 			//Get the end date
-			Date endDate = ui.promptForDate("End date of week ("
-					+ UserInterface.DATE_FORMAT + "): ");
+			Date endDate = ui.promptForDate("End date of week (" + UserInterface.DATE_FORMAT + "): ");
 
 			//Generate report for specified week
-			MemberReportGenerator generator 
-			= new MemberReportGenerator(theMember, endDate);
+			MemberReportGenerator generator = new MemberReportGenerator(theMember, endDate);
 			MemberReport report = generator.getReport();
 
 			//Display the report
 			report.display(ui);
 
-			//"Print" (save the report to a file) if the user wishes
+			//Save the report to a file, "print", if the user wishes
 			String answer = ui.promptForString
 					("Save the report? (Y)es or (N)o: ");
 			if (answer != null && answer.length() >= 1 &&			
@@ -160,27 +156,22 @@ public class ManagerInterface
 		try
 		{
 			//Get the end date
-			Date endDate = ui.promptForDate("End date of week (" +
-					UserInterface.DATE_FORMAT + "): ");
+			Date endDate = ui.promptForDate("End date of week (" + UserInterface.DATE_FORMAT + "): ");
 
 			//Generate report for specified week
-			AccountsPayableReportGenerator generator 
-			= new AccountsPayableReportGenerator(endDate);
+			AccountsPayableReportGenerator generator = new AccountsPayableReportGenerator(endDate);
 			AccountsPayableReport report = generator.getReport();
 
 			//Display the report
 			report.display(ui);
 
 			//"Print" (save the report to a file) if the user wishes
-			String answer = ui.promptForString
-					("Save the report? (Y)es or (N)o: ");
+			String answer = ui.promptForString("Save the report? (Y)es or (N)o: ");
 			if (answer != null && answer.length() >= 1 &&			
 					Character.toUpperCase(answer.charAt(0)) == 'Y')
 			{
-
 				report.print("Accounts Payable");
-				ui.message("The report has been saved as " 
-						+ report.getFileName() + "\n");
+				ui.message("The report has been saved as " + report.getFileName() + "\n");
 			}
 			else ui.message("Report not saved");
 

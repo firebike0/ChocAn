@@ -64,7 +64,7 @@ public class ServiceController
 		for (Service aService : serviceList)
 			if (aService.getCode().equals(serviceCode))
 				return aService;
-		//for some reason wasnt playing friendly... switched to enhanced and it works?
+		//for some reason wasn't playing friendly... switched to enhanced and it works?
 		/*for(int i=0; i < serviceList.size(); i++)
 		if(serviceList.get(i).getCode().equals(serviceCode))
 			return serviceList.get(i);*/
