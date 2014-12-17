@@ -57,20 +57,19 @@ public class ProviderMaintainer extends PersonMaintainer
 
 	private void addProvider()
 	{
-		ui.message("\tAdd a provider\n");
+		ui.message("\tAdd a provider");
 		Provider newProvider = new Provider();
 		//false for the second parameter means required attributes must be provided	
 		updatePerson(ui, newProvider, false); 	
 		//add to provider collection
 		providers.add(newProvider);	
 		//display provider
-		ui.message("\nNew Provider details: \n" + newProvider.toFormattedString()
-				+ "\n\n");
+		ui.message("\nNew Provider details: \n" + newProvider.toFormattedString() + "");
 	}
 
 	private void editProvider()
 	{
-		ui.message("\tEdit a provider\n\n");
+		ui.message("\tEdit a provider");
 		//get provider number
 		long number = ui.promptForLong("Provider number: ");
 
@@ -89,8 +88,7 @@ public class ProviderMaintainer extends PersonMaintainer
 			providers.update(aProvider);
 
 			//display updated provider
-			ui.message("\nUpdated Provider details: \n" 
-					+ aProvider.toFormattedString()+ "\n\n");
+			ui.message("\nUpdated Provider details: \n" + aProvider.toFormattedString()+ "");
 		}
 		else ui.errorMessage("Provider number " + number 
 				+ " cannot be found.\n");
@@ -108,8 +106,7 @@ public class ProviderMaintainer extends PersonMaintainer
 		if (aProvider != null)
 		{
 			//display provider and request confirmation of deletion
-			ui.message("\nCurrent Provider details: \n" 
-					+ aProvider.toFormattedString() + "\n");
+			ui.message("\nCurrent Provider details: \n" + aProvider.toFormattedString() + "");
 			String answer = ui.promptForString
 					("Are you sure you want to delete this provider? (Y)es or (N)o: ");
 			if (answer != null && answer.length() >= 1)			
@@ -119,10 +116,10 @@ public class ProviderMaintainer extends PersonMaintainer
 					providers.delete(number);
 
 					//display acknowledgment
-					ui.message("\nThe provider has been deleted.\n\n");
+					ui.message("\nThe provider has been deleted.\n");
 				}
 				else ui.message("The provider has not been deleted.\n");
-			else ui.message("\nThe provider has not been deleted.\n\n");
+			else ui.message("\nThe provider has not been deleted.\n");
 		}
 		else
 			ui.errorMessage("Provider number " + number + " cannot be found.\n");

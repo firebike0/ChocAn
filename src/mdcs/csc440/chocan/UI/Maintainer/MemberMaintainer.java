@@ -57,7 +57,7 @@ public class MemberMaintainer extends PersonMaintainer
 
 	private void addMember()
 	{
-		ui.message("\tAdd a Member\n");
+		ui.message("\tAdd a Member");
 		//Create a new default member.  
 		//Status is set by the constructor to Active
 		Member newMember = new Member();
@@ -72,7 +72,7 @@ public class MemberMaintainer extends PersonMaintainer
 
 	private void editMember()
 	{
-		ui.message("\tEdit a Member\n\n");
+		ui.message("\tEdit a Member");
 		//Get member number
 		long number = ui.promptForLong("Member number: ");
 		//Search for member
@@ -115,7 +115,7 @@ public class MemberMaintainer extends PersonMaintainer
 
 	private void deleteMember()
 	{
-		ui.message("\tDelete a Member\n\n");
+		ui.message("\tDelete a Member");
 
 		//get member number
 		long number = ui.promptForLong("Member number: ");

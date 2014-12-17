@@ -65,7 +65,7 @@ public class ServiceMaintainer
 	{
 		try
 		{
-			ui.message("\tAdd a service\n\n");
+			ui.message("\tAdd a service");
 
 			//Create a new default service.
 			Service newService = new Service();
@@ -90,7 +90,7 @@ public class ServiceMaintainer
 
 	private void editService()
 	{
-		ui.message("\tEdit a service\n\n");
+		ui.message("\tEdit a service");
 
 		//get service code
 		String code = ui.promptForString("Service code: ");
@@ -122,7 +122,7 @@ public class ServiceMaintainer
 
 	private void deleteService()
 	{
-		ui.message("\tDelete a service\n\n");
+		ui.message("\tDelete a service");
 
 		//get service code
 		String code = ui.promptForString("Service code: ");
