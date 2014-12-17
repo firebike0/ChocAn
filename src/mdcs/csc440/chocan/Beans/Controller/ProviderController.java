@@ -8,10 +8,10 @@ import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.Beans.Provider;
 
 // This class represents a collection of Provider objects.
-public class Providers extends Persons
+public class ProviderController extends PersonController
 {
 
-	public Providers()
+	public ProviderController()
 	{
 	}
 	

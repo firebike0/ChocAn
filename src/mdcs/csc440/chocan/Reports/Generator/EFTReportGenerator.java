@@ -9,9 +9,9 @@ import mdcs.csc440.chocan.Beans.Visit;
 import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.Service;
-import mdcs.csc440.chocan.Beans.Controller.Visits;
-import mdcs.csc440.chocan.Beans.Controller.Providers;
-import mdcs.csc440.chocan.Beans.Controller.Services;
+import mdcs.csc440.chocan.Beans.Controller.VisitController;
+import mdcs.csc440.chocan.Beans.Controller.ProviderController;
+import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 import mdcs.csc440.chocan.Reports.EFTReport;
 
 // Control class produce EFT Data.
@@ -20,20 +20,20 @@ public class EFTReportGenerator
 
 	public EFTReportGenerator(Date endDate) throws FileNotFoundException
 	{
-		Visits visits = null;
-		Services services = null;
-		Providers providers = null;
+		VisitController visits = null;
+		ServiceController services = null;
+		ProviderController providers = null;
 
 		//create a new EFT report
 		report = new EFTReport(endDate);
 
 		try
 		{						
-			visits = new Visits();
+			visits = new VisitController();
 			visits.open();
-			services = new Services();
+			services = new ServiceController();
 			services.open();
-			providers = new Providers();
+			providers = new ProviderController();
 			providers.open();
 
 			ArrayList<Person> allProviders = providers.getAll(); 

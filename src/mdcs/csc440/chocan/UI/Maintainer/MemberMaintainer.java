@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 
 import mdcs.csc440.chocan.Beans.Member;
-import mdcs.csc440.chocan.Beans.Controller.Members;
+import mdcs.csc440.chocan.Beans.Controller.MemberController;
 import mdcs.csc440.chocan.UI.UserInterface;
 
 //Control class to Maintain Member.  A Member can  be added, updated or deleted.
@@ -18,7 +18,7 @@ public class MemberMaintainer extends PersonMaintainer
 		try
 		{
 			//Create and open the member collection
-			members = new Members();
+			members = new MemberController();
 			members.open();
 
 			//Create a user interface and set up menu
@@ -150,7 +150,7 @@ public class MemberMaintainer extends PersonMaintainer
 	}
 
 	private UserInterface ui;
-	private Members members;
+	private MemberController members;
 
 	// Runs the MemberMaintainer independently of the rest of the system.
 

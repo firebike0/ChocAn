@@ -5,7 +5,7 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 
 import mdcs.csc440.chocan.Beans.Service;
-import mdcs.csc440.chocan.Beans.Controller.Services;
+import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 import mdcs.csc440.chocan.UI.UserInterface;
 
 //Control class to co-ordinate the use case Maintain Service.  A Service can be added, updated or deleted.
@@ -22,7 +22,7 @@ public class ServiceMaintainer
 		try
 		{
 			//Create and open the service collection
-			services = new Services();
+			services = new ServiceController();
 			services.open();
 
 			//Create a user interface and set up menu
@@ -195,7 +195,7 @@ public class ServiceMaintainer
 	}
 
 	private UserInterface ui;
-	private Services services;
+	private ServiceController services;
 
 	//Runs the ServiceMaintainer independently of the rest of the system.
 

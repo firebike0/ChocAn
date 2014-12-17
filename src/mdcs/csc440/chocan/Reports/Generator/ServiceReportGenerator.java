@@ -6,7 +6,7 @@ import java.io.FileNotFoundException;
 
 import mdcs.csc440.chocan.Beans.ProviderDirectory;
 import mdcs.csc440.chocan.Beans.Service;
-import mdcs.csc440.chocan.Beans.Controller.Services;
+import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 
 //Control class that handles the Request Provider Directory
 
@@ -17,7 +17,7 @@ public class ServiceReportGenerator
 	{
 		try
 		{
-			Services services = new Services();
+			ServiceController services = new ServiceController();
 			services.open();
 
 			//Create a new provider directory

@@ -9,9 +9,9 @@ import mdcs.csc440.chocan.Beans.Visit;
 import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.Service;
-import mdcs.csc440.chocan.Beans.Controller.Visits;
-import mdcs.csc440.chocan.Beans.Controller.Members;
-import mdcs.csc440.chocan.Beans.Controller.Services;
+import mdcs.csc440.chocan.Beans.Controller.MemberController;
+import mdcs.csc440.chocan.Beans.Controller.VisitController;
+import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 import mdcs.csc440.chocan.Reports.ProviderReport;
 
 //Control class that handles the Produce Provider Report.
@@ -23,20 +23,20 @@ public class ProviderReportGenerator
 	public ProviderReportGenerator(Provider provider, Date endDate) 
 			throws FileNotFoundException
 	{
-		Visits visits = null;
-		Members members = null;
-		Services services = null;
+		VisitController visits = null;
+		MemberController members = null;
+		ServiceController services = null;
 
 		//Create a new provider report
 		report = new ProviderReport(provider, endDate);
 
 		try
 		{	
-			visits = new Visits();
+			visits = new VisitController();
 			visits.open();
-			members = new Members();
+			members = new MemberController();
 			members.open();
-			services = new Services();
+			services = new ServiceController();
 			services.open();
 
 			int noConsultations = 0;  //use to count number of consultations

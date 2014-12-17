@@ -4,7 +4,7 @@ import java.io.FileNotFoundException;
 import java.util.NoSuchElementException;
 
 import mdcs.csc440.chocan.Beans.Provider;
-import mdcs.csc440.chocan.Beans.Controller.Providers;
+import mdcs.csc440.chocan.Beans.Controller.ProviderController;
 import mdcs.csc440.chocan.UI.UserInterface;
 
 //Control class to co-ordinate the use case Maintain Provider.  A Provider can be added, updated or deleted.
@@ -19,7 +19,7 @@ public class ProviderMaintainer extends PersonMaintainer
 	{
 		try
 		{
-			providers = new Providers();
+			providers = new ProviderController();
 			providers.open();
 
 			//set up menu for user interface		
@@ -130,7 +130,7 @@ public class ProviderMaintainer extends PersonMaintainer
 	}
 
 	private UserInterface ui;	   
-	private Providers providers;   
+	private ProviderController providers;   
 
 	 // Runs the ProviderMaintainer independently of the rest of the system.
 

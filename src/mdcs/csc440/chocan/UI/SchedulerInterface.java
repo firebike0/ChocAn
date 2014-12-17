@@ -8,8 +8,8 @@ import java.util.NoSuchElementException;
 import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.Beans.Provider;
-import mdcs.csc440.chocan.Beans.Controller.Members;
-import mdcs.csc440.chocan.Beans.Controller.Providers;
+import mdcs.csc440.chocan.Beans.Controller.MemberController;
+import mdcs.csc440.chocan.Beans.Controller.ProviderController;
 import mdcs.csc440.chocan.Reports.MemberReport;
 import mdcs.csc440.chocan.Reports.ProviderReport;
 import mdcs.csc440.chocan.Reports.Generator.AccountsPayableReportGenerator;
@@ -35,7 +35,7 @@ public class SchedulerInterface
 		{
 			//Generate provider reports
 			ui.message("Generating the providers' reports ...");
-			Providers providers	= new Providers();
+			ProviderController providers = new ProviderController();
 			providers.open();
 			ArrayList<Person> allProviders = providers.getAll(); 
 			for (Person person : allProviders)
@@ -51,7 +51,7 @@ public class SchedulerInterface
 
 			//Generate member reports
 			ui.message("Generating the members' reports ...");
-			Members members = new Members();
+			MemberController members = new MemberController();
 			members.open();
 			ArrayList<Person> allMembers = members.getAll(); 
 			for (Person person : allMembers)

@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.ProviderDirectory;
-import mdcs.csc440.chocan.Beans.Controller.Members;
-import mdcs.csc440.chocan.Beans.Controller.Providers;
+import mdcs.csc440.chocan.Beans.Controller.MemberController;
+import mdcs.csc440.chocan.Beans.Controller.ProviderController;
 import mdcs.csc440.chocan.Reports.Generator.ServiceReportGenerator;
 
 //This class simulates the provider terminal interface
@@ -48,7 +48,7 @@ public class ProviderInterface
 	{
 		try
 		{
-			Providers providers = new Providers();
+			ProviderController providers = new ProviderController();
 			providers.open();
 
 			boolean validNumber = false;
@@ -78,7 +78,7 @@ public class ProviderInterface
 	{
 		try
 		{
-			Members members = new Members();
+			MemberController members = new MemberController();
 			members.open();
 			boolean canContinue = false;
 

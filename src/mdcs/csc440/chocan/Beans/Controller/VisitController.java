@@ -10,10 +10,10 @@ import java.text.ParseException;
 import mdcs.csc440.chocan.Beans.Visit;
 
 // Visits represents a collection of Visit objects.
-public class Visits
+public class VisitController
 {
 
-	public Visits() 
+	public VisitController() 
 	{
 		visitList = new ArrayList<Visit>();
 	}

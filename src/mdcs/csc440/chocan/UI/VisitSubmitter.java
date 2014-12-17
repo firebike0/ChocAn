@@ -8,8 +8,8 @@ import mdcs.csc440.chocan.Beans.Visit;
 import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.Service;
-import mdcs.csc440.chocan.Beans.Controller.Visits;
-import mdcs.csc440.chocan.Beans.Controller.Services;
+import mdcs.csc440.chocan.Beans.Controller.VisitController;
+import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 
 //The VisitSubmitter control class provides information for Submit Visit , after the Verify Member use case has completed.
 
@@ -22,8 +22,8 @@ public class VisitSubmitter
 		{
 			ui = new UserInterface();
 
-			services = new Services();
-			visits = new Visits();
+			services = new ServiceController();
+			visits = new VisitController();
 			services.open();
 			visits.open();
 
@@ -85,8 +85,8 @@ public class VisitSubmitter
 
 	}
 	
-	private Services services;
-	private Visits visits;
+	private ServiceController services;
+	private VisitController visits;
 
 	private UserInterface ui;
 }

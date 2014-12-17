@@ -10,10 +10,10 @@ import mdcs.csc440.chocan.Beans.Person;
 
 
 // Models a collection of Person objects, sorted by number.
-public class Persons
+public class PersonController
 {
 
-	public Persons() 
+	public PersonController() 
 	{
 		personList = new ArrayList<Person>();
 	}

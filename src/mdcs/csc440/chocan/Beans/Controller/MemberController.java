@@ -8,10 +8,10 @@ import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Person;
 
 // Models a collection of Member objects.  
-public class Members extends Persons
+public class MemberController extends PersonController
 {
 
-	public Members()
+	public MemberController()
 	{
 	}
 

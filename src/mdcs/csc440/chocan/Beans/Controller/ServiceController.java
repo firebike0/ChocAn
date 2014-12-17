@@ -10,12 +10,12 @@ import java.text.ParseException;
 import mdcs.csc440.chocan.Beans.Service;
 
 // This class models a collection of Service objects.
-public class Services
+public class ServiceController
 {
 	
 	private ArrayList<Service> serviceList;
 
-	public Services() 
+	public ServiceController() 
 	{
 		serviceList = new ArrayList<Service>();
 	}

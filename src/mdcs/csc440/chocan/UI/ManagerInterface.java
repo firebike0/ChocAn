@@ -6,8 +6,8 @@ import java.util.NoSuchElementException;
 
 import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Provider;
-import mdcs.csc440.chocan.Beans.Controller.Members;
-import mdcs.csc440.chocan.Beans.Controller.Providers;
+import mdcs.csc440.chocan.Beans.Controller.MemberController;
+import mdcs.csc440.chocan.Beans.Controller.ProviderController;
 import mdcs.csc440.chocan.Reports.AccountsPayableReport;
 import mdcs.csc440.chocan.Reports.MemberReport;
 import mdcs.csc440.chocan.Reports.ProviderReport;
@@ -64,7 +64,7 @@ public class ManagerInterface
 			long number = ui.promptForLong("Provider Number: ");
 
 			//Search for the provider number in the collection
-			Providers providers = new Providers();
+			ProviderController providers = new ProviderController();
 			providers.open();
 			Provider theProvider = providers.find(number);
 			providers.close();
@@ -113,7 +113,7 @@ public class ManagerInterface
 			long number = ui.promptForLong("Member Number: ");
 
 			//Search for the member in the collection
-			Members members = new Members();
+			MemberController members = new MemberController();
 			members.open();
 			Member theMember = members.find(number);
 			members.close();
