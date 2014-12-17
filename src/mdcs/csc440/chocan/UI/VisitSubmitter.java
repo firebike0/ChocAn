@@ -57,6 +57,24 @@ public class VisitSubmitter
 			Visit aVisit = new Visit(theService.getCode(),
 					theProvider.getNumber(), theMember.getNumber(),
 					serviceDate);
+			
+			boolean comment = false;
+			String aComment = "";
+			ui.message("If no comments press enter");
+			do
+			{
+				aComment = ui.promptForString("Enter comments: ");
+				if(aComment == null || aComment.length() == 0) {
+					aComment = " ";
+					comment = true;
+				} else if (aComment.length() <= 100) {
+					comment = true;
+				} else {
+					ui.message("Comments must be less than 100 characters");
+				}
+			} while(!comment);
+			aVisit.setComments(aComment);
+			
 			visits.add(aVisit);
 			//Display success confirmation and service fee
 			ui.message("Your claim has been submitted successfully.");

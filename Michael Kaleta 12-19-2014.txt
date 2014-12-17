@@ -1,0 +1,19 @@
+                              Chocoholics Anonymous                             
+
+                                Claim Submissions                               
+
+Week Ending: 12-19-2014                       Provider Number: 100000000
+
+Provider Name: Michael Kaleta                 Address: 120 Burning Bush Trail
+                                                       Crystal Lake
+                                                       IL
+                                                       60012
+
+Submission Date-Time  Service Date    Code       Fee  Member No.  Member Name
+--------------------  ------------    ----       ---  ----------  -----------
+ 12-17-2014 11-19-31    12-17-2014  839505    $35.00   100000003  Blake A. Crawford
+ 12-17-2014 11-20-47    12-17-2014  598470    $13.37   100000005  John Wentworth
+
+Number of consultations: 2
+Total Fee: $48.37
+

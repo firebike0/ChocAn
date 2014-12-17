@@ -55,6 +55,10 @@ public class Visit
 		return serviceDate;
 	}
 	
+	public String getComments() {
+		return comments;
+	}
+	
 	public void setServiceCode(String aCode)
 	{
 		if (aCode == null || aCode.length() == 0)
@@ -91,6 +95,11 @@ public class Visit
 		else serviceDate = aDate;
 	}
 	
+	public void setComments(String aComment) {
+		//no check is done if comments exist or not as it is optional
+		comments = aComment;
+	}
+	
 	public String toString()
 	{
 		dateFormatter.applyPattern(DATE_TIME_FORMAT);
@@ -101,13 +110,15 @@ public class Visit
 				+ serviceCode + SEPARATOR
 				+ providerNumber + SEPARATOR
 				+ memberNumber + SEPARATOR
-				+ serviceDateString;
+				+ serviceDateString + SEPARATOR
+				+ comments;
 	}
 
 	// Changes all the variables to the values given by the string 
 	private void fromString(String data) throws ParseException 
 	{
 		String [] fields = data.split("" + SEPARATOR);
+		System.out.println(fields.length);
 		dateFormatter.applyPattern(DATE_TIME_FORMAT);
 		submissionDate = dateFormatter.parse(fields[0]);
 		setServiceCode(fields[1]);
@@ -115,6 +126,7 @@ public class Visit
 		setMemberNumber(Integer.parseInt(fields[3]));
 		dateFormatter.applyPattern(DATE_FORMAT);
 		setServiceDate(dateFormatter.parse(fields[4]));
+		setComments(fields[5]);
 	}
 	
 	private Date submissionDate;
@@ -122,6 +134,7 @@ public class Visit
 	private long providerNumber;
 	private long memberNumber;
 	private Date serviceDate;	
+	private String comments;
 
 	public static final int CODE_LENGTH = 6;
 

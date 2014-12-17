@@ -95,7 +95,7 @@ public class ProviderInterface
 				canContinue = true;
 			}
 			else if (theMember.getStatus() == 'S')
-				ui.message("Suspended\n");
+				ui.message("Suspended Member\n");
 			else ui.errorMessage("Invalid status: " + theMember.getStatus());
 
 			if (canContinue)  //Can continue only if member is active
