@@ -21,7 +21,7 @@ public class ProviderInterface
 		//Start use case Manage Session
 		logon();
 
-		String menuText = "\t1. Verify Member/Submit Claim\n" 
+		String menuText = "\t1. Add Service Provided to Member\n" 
 				+ "\t2. Request Provider Directory\n"
 				+ "\t3. Quit\n"; 
 
@@ -100,9 +100,9 @@ public class ProviderInterface
 
 			if (canContinue)  //Can continue only if member is active
 			{
-				//Submit Visit Use Case extension to the Verify Member Use Case
+				//Submit Visit
 				String answer = ui.promptForString
-						("Continue to submit claim? (Y)es or (N)o: ");
+						("Continue to submit visit? (Y)es or (N)o: ");
 				if (answer != null && answer.length() >= 1)        
 					if (Character.toUpperCase(answer.charAt(0)) == 'Y')
 					{

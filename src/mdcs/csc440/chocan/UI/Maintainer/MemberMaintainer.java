@@ -58,10 +58,7 @@ public class MemberMaintainer extends PersonMaintainer
 	private void addMember()
 	{
 		ui.message("\tAdd a Member");
-		//Create a new default member.  
-		//Status is set by the constructor to Active
 		Member newMember = new Member();
-		//Get values for attributes
 		//false for last parameter means required attributes must be provided
 		updatePerson(ui, newMember, false); 
 		members.add(newMember);	
@@ -80,8 +77,7 @@ public class MemberMaintainer extends PersonMaintainer
 		if (aMember != null)
 		{
 			//Display member
-			ui.message("Current Member Details: \n" 
-					+ aMember.toFormattedString());
+			ui.message("Current Member Details: \n" + aMember.toFormattedString());
 			//get updated values for attributes
 			//true means attributes not provided will retain their original values		
 			updatePerson(ui, aMember, true);  

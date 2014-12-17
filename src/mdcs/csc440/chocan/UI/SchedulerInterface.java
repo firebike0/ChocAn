@@ -17,14 +17,13 @@ import mdcs.csc440.chocan.Reports.Generator.EFTReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.MemberReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.ProviderReportGenerator;
 
-//Simulates the Scheduler Interface of the ChocAn System. Through this interface (boundary class) the scheduler (tester in this implementation) starts the use case Run Accounting Procedure.
+//Simulates the Scheduler Interface of the ChocAn System. This runs all of the accounting work at once.
 
 public class SchedulerInterface 
 {
 
 	public SchedulerInterface() 
 	{
-		//for communciation with the tester
 		UserInterface ui = new UserInterface();
 		ui.message("Running the accounting procedure ...\n");
 
@@ -41,8 +40,7 @@ public class SchedulerInterface
 			for (Person person : allProviders)
 			{
 				Provider provider = (Provider) person;
-				ProviderReportGenerator generator 
-				= new ProviderReportGenerator(provider, now);
+				ProviderReportGenerator generator = new ProviderReportGenerator(provider, now);
 				ProviderReport theReport =	generator.getReport() ;
 				if (theReport.getDetailCount() > 0)
 					theReport.sendByEmail(provider.getName());
@@ -57,8 +55,7 @@ public class SchedulerInterface
 			for (Person person : allMembers)
 			{
 				Member member = (Member) person;
-				MemberReportGenerator generator 
-				= new MemberReportGenerator(member, now);
+				MemberReportGenerator generator = new MemberReportGenerator(member, now);
 				MemberReport theReport = generator.getReport();
 				if(theReport.getDetailCount() > 0)
 					theReport.sendByEmail(member.getName());
@@ -67,8 +64,7 @@ public class SchedulerInterface
 
 			//Generate accounts payable report
 			ui.message("Generating the accounts payable report ...");
-			AccountsPayableReportGenerator generator 
-			= new AccountsPayableReportGenerator(now);
+			AccountsPayableReportGenerator generator = new AccountsPayableReportGenerator(now);
 			generator.getReport().sendByEmail("Accounts Payable");
 
 			//Generate EFT data

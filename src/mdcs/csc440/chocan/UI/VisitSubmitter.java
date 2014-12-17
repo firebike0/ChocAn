@@ -11,7 +11,7 @@ import mdcs.csc440.chocan.Beans.Service;
 import mdcs.csc440.chocan.Beans.Controller.VisitController;
 import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 
-//The VisitSubmitter control class provides information for Submit Visit , after the Verify Member use case has completed.
+//The VisitSubmitter control class provides information for Submit Visit after the member has been verified
 
 public class VisitSubmitter
 {
@@ -28,8 +28,7 @@ public class VisitSubmitter
 			visits.open();
 
 			//get the service date
-			Date serviceDate = ui.promptForDate
-					("Service Date (" + UserInterface.DATE_FORMAT + "): ");
+			Date serviceDate = ui.promptForDate("Service Date (" + UserInterface.DATE_FORMAT + "): ");
 
 			//get the correct service
 			Service theService = null;
@@ -61,8 +60,7 @@ public class VisitSubmitter
 			visits.add(aVisit);
 			//Display success confirmation and service fee
 			ui.message("Your claim has been submitted successfully.");
-			ui.message("Service fee due to you: " 
-					+ ui.formatAsCurrency(theService.getFee()));
+			ui.message("Service fee due to you: " + ui.formatAsCurrency(theService.getFee()));
 
 			services.close();
 			visits.close();
