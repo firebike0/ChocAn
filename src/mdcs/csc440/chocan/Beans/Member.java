@@ -1,7 +1,5 @@
 package mdcs.csc440.chocan.Beans;
 
-import mdcs.csc440.chocan.Beans.Controller.Validator;
-
 //Entity class that models a member
 public class Member extends Person
 {
