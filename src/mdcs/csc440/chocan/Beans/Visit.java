@@ -118,7 +118,6 @@ public class Visit
 	private void fromString(String data) throws ParseException 
 	{
 		String [] fields = data.split("" + SEPARATOR);
-		System.out.println(fields.length);
 		dateFormatter.applyPattern(DATE_TIME_FORMAT);
 		submissionDate = dateFormatter.parse(fields[0]);
 		setServiceCode(fields[1]);
