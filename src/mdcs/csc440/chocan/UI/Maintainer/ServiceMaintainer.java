@@ -35,7 +35,7 @@ public class ServiceMaintainer
 			int choice;
 			do
 			{
-				ui.message("\t\t\tMaintain Services\n\n");
+				ui.message("\t\t\tMaintain Services");
 				choice = ui.menu(menuText);  //display menu and get choice
 				switch(choice)
 				{

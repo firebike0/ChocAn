@@ -31,7 +31,7 @@ public class MemberMaintainer extends PersonMaintainer
 			int choice;
 			do
 			{
-				ui.message("\t\t\tMaintain Members\n\n");
+				ui.message("\t\t\tMaintain Members");
 				//display menu and get choice
 				choice = ui.menu(menuText);  
 				switch(choice)

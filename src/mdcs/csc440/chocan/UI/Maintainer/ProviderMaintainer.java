@@ -32,7 +32,7 @@ public class ProviderMaintainer extends PersonMaintainer
 			int choice;
 			do
 			{
-				ui.message("\t\t\tMaintain Providers\n\n");
+				ui.message("\t\t\tMaintain Providers");
 				//display menu and read choice
 				choice = ui.menu(menuText);  
 				switch(choice)

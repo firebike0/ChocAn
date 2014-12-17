@@ -4,7 +4,6 @@ import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.UI.UserInterface;
 
 //Superclass for ProviderMaintainer and MemberMaintainer
-
 public abstract class PersonMaintainer
 {
 	public PersonMaintainer()
