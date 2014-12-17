@@ -17,18 +17,11 @@ import mdcs.csc440.chocan.Reports.Generator.EFTReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.MemberReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.ProviderReportGenerator;
 
-/** Simulates the Scheduler Interface of the ChocAn System.  Through this
- *  interface (boundary class) the scheduler (tester in this implementation)
- *  starts the use case Run Accounting Procedure.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//Simulates the Scheduler Interface of the ChocAn System. Through this interface (boundary class) the scheduler (tester in this implementation) starts the use case Run Accounting Procedure.
+
 public class SchedulerInterface 
 {
 
-	/**
-	 * Creates a new SchedulerInterface which then runs the accounting procedure.
-	 */
 	public SchedulerInterface() 
 	{
 		//for communciation with the tester
@@ -91,13 +84,10 @@ public class SchedulerInterface
 			ui.errorMessage(ex.getMessage());
 		}	
 
-	}//default constructor
+	}
 
-	//************************************************************
-	/**
-	 * Runs the accounting procedure independently of subsystems
-	 * @param args not used
-	 */
+	// Runs the accounting procedure independently of subsystems
+
 	public static void main(String[] args) 
 	{
 		try
@@ -109,5 +99,5 @@ public class SchedulerInterface
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main	
-}//SchedulerInterface
+	}	
+}

@@ -7,22 +7,18 @@ import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.Controller.Providers;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-/** Control class to co-ordinate the use case Maintain Provider.  A Provider can
- *  be added, updated or deleted.
- *  @author Jean Naude 
- *  @version 1.0 March 2009
- */
+//Control class to co-ordinate the use case Maintain Provider.  A Provider can be added, updated or deleted.
+
 public class ProviderMaintainer extends PersonMaintainer
 {
 
-	/**
-	 * Creates a new ProviderMaintainer control object
-	 */
+
+	 //Creates a new ProviderMaintainer control object
+
 	public ProviderMaintainer()
 	{
 		try
 		{
-			//create and open the provider collection
 			providers = new Providers();
 			providers.open();
 
@@ -49,7 +45,6 @@ public class ProviderMaintainer extends PersonMaintainer
 				}
 			}while (choice != 4);
 
-			//close provider collection
 			providers.close();
 		}
 		catch (FileNotFoundException ex)
@@ -58,26 +53,21 @@ public class ProviderMaintainer extends PersonMaintainer
 			ui.errorMessage(ex.getMessage());
 		}
 
-	}//default constructor
+	}
 
-	// Allows the user to add a new provider to the collection
 	private void addProvider()
 	{
 		ui.message("\tAdd a provider\n");
-		//Create a new default provider
 		Provider newProvider = new Provider();
-		//get values for attributes
-		//false for the second parameter means required attributes 
-		//must be provided	
+		//false for the second parameter means required attributes must be provided	
 		updatePerson(ui, newProvider, false); 	
 		//add to provider collection
 		providers.add(newProvider);	
 		//display provider
 		ui.message("\nNew Provider details: \n" + newProvider.toFormattedString()
 				+ "\n\n");
-	}//addProvider
+	}
 
-	// Allows the user to update an existing provider's details
 	private void editProvider()
 	{
 		ui.message("\tEdit a provider\n\n");
@@ -88,7 +78,6 @@ public class ProviderMaintainer extends PersonMaintainer
 		Provider aProvider = providers.find(number);
 		if (aProvider != null)
 		{
-			//display provider
 			ui.message("\nCurrent Provider details: \n" 
 					+ aProvider.toFormattedString());
 
@@ -97,7 +86,6 @@ public class ProviderMaintainer extends PersonMaintainer
 			//will retain their original values	
 			updatePerson(ui, aProvider, true);  
 
-			//update provider in collection
 			providers.update(aProvider);
 
 			//display updated provider
@@ -106,9 +94,8 @@ public class ProviderMaintainer extends PersonMaintainer
 		}
 		else ui.errorMessage("Provider number " + number 
 				+ " cannot be found.\n");
-	}//editProvider
+	}
 
-	//Allows the user to delete a provider from the collection
 	private void deleteProvider()
 	{
 		ui.message("\tDelete a provider\n\n");
@@ -140,17 +127,13 @@ public class ProviderMaintainer extends PersonMaintainer
 		else
 			ui.errorMessage("Provider number " + number + " cannot be found.\n");
 
-	}//deleteProvider
+	}
 
-	//**************instance variables
-	private UserInterface ui;	   //an instance of a user interface
-	private Providers providers;  //a collection of provider objects
+	private UserInterface ui;	   
+	private Providers providers;   
 
-	//********************************************************************
-	/**
-	 * Runs the ProviderMaintainer independently of the rest of the system.
-	 * @param args not used
-	 */
+	 // Runs the ProviderMaintainer independently of the rest of the system.
+
 	public static void main(String[] args)
 	{
 		try
@@ -162,6 +145,6 @@ public class ProviderMaintainer extends PersonMaintainer
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main	
+	}	
 
-}//class ProviderMaintainer
+}

@@ -14,20 +14,12 @@ import mdcs.csc440.chocan.Beans.Controller.Members;
 import mdcs.csc440.chocan.Beans.Controller.Services;
 import mdcs.csc440.chocan.Reports.ProviderReport;
 
-/** Control class to co-ordinate the use case Produce Provider Report.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//Control class that handles the Produce Provider Report.
+
 
 public class ProviderReportGenerator 
 {
 
-	/** Creates a new provider report generator which creates a new provider report.
-	 *  @param provider the provider about whom the report is generated
-	 *  @param endDate a date within the week for which the report is to be
-	 *         generated
-	 *  @throws FileNotFoundException if the file cannot be created.
-	 */
 	public ProviderReportGenerator(Provider provider, Date endDate) 
 			throws FileNotFoundException
 	{
@@ -39,8 +31,7 @@ public class ProviderReportGenerator
 		report = new ProviderReport(provider, endDate);
 
 		try
-		{						
-			//create and open the collections of claims, members and services
+		{	
 			visits = new Visits();
 			visits.open();
 			members = new Members();
@@ -51,11 +42,11 @@ public class ProviderReportGenerator
 			int noConsultations = 0;  //use to count number of consultations
 			double totalFee = 0;      //use to accumulate fee
 
-			//get all claims submitted by provider
+			//get all visits submitted by provider
 			ArrayList<Visit> providerVisits = 
 					visits.findByProvider(provider.getNumber());
 
-			//for each claim
+			//for each visit
 			for (Visit nextVisit : providerVisits)
 			{
 				//test whether within date range
@@ -76,7 +67,7 @@ public class ProviderReportGenerator
 						serviceFee = 0;   //indicates invalid code
 					else serviceFee = service.getFee();
 
-					//add claim details to report
+					//add visit details to report
 					report.addDetail(nextVisit.getSubmissionDate(),
 							nextVisit.getServiceDate(), nextVisit.getMemberNumber(),
 							memberName, nextVisit.getServiceCode(), serviceFee);
@@ -86,12 +77,12 @@ public class ProviderReportGenerator
 
 					//accumulate fee
 					totalFee += serviceFee;
-				}//if date in specified week
-			}//for
+				}
+			}
 
-			//add summary details to report
+			
 			report.addSummary(noConsultations, totalFee);
-		}//try
+		}
 		catch (ParseException ex)
 		{
 			report.addErrorMessage(ex.getMessage());
@@ -103,17 +94,13 @@ public class ProviderReportGenerator
 			if (services != null) services.close();
 		}		
 
-	}//constructor
+	}
 
-	/** Returns the report
-	 *  @return the report
-	 */
 	public ProviderReport getReport()
 	{
 		return report;
-	}//getReport
+	}
 
-	//********************instance variable
 	private ProviderReport report;
 
-}//class ProviderReportGenerator
+}

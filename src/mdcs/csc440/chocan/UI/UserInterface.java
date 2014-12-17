@@ -8,28 +8,18 @@ import java.text.ParseException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
-/** The UserInterface class encapsulates all the user interaction 
- *  with the system.
- *  This implementation uses the console for input and output.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//UserInterface class holds all of the user data within the system.
+
 public class UserInterface
 {
 
-	/**
-	 * Creates a new UserInterface
-	 */
 	public UserInterface()
 	{
 		in = new Scanner(System.in);
 	}//default constructor
 
-	/** Displays the menu text given, prompts the user for his choice
-	 *  and returns the choice.
-	 *  @param menuText the menu text to display
-	 *  @return the user's choice
-	 */
+	// Displays the menu text given, prompts the user for his choice and returns the choice.
+
 	public int menu(String menuText)	
 	{
 		try
@@ -49,9 +39,6 @@ public class UserInterface
 		}
 		catch (NoSuchElementException ex)
 		{
-			//End of input, either of a test case using an input file
-			//or the user presses Ctrl + Z (Windows)
-			//or Ctrl + D (Unix) to exit the system.
 			throw ex;
 		}
 		catch (Exception ex)       //all other exceptions
@@ -59,45 +46,29 @@ public class UserInterface
 			errorMessage(ex.getMessage());
 			return 0;
 		}
-	}//menu
+	}
 
-	/** Displays the message as an error message
-	 *  @param msg the message to display
-	 */
 	public void errorMessage(String msg)
 	{
 		System.out.println("\n\n***Error: " + msg + "\n");
-		//Make sure the user takes notice.  Similar to modal
-		//error dialog in a GUI
 		System.out.print("Press enter to continue ...");
 		in.nextLine();
-	}//errorMessage
+	}
 
-	/** Displays the message as a standard message on a new line.
-	 *  @param msg the message to display
-	 */
+	// Displays the message as a standard message on a new line.
+
 	public void message(String msg)
 	{
 		System.out.print("\n" + msg);
-	}//message
+	}
 
-	/** Displays a prompt to the user for a string 
-	 *  and returns the user's input
-	 *  @param prompt the prompt
-	 *  @return the user input 
-	 */
 	public String promptForString(String prompt)
 	{
 		message(prompt);
 		String input = in.nextLine();
 		return input;
-	}//promptForString
+	}
 
-	/** Diplays a prompt to the user for a long integer 
-	 *  and returns the user's input
-	 *  @param prompt the prompt
-	 *  @return the user input 
-	 */
 	public long promptForLong(String prompt)
 	{
 		try
@@ -112,12 +83,9 @@ public class UserInterface
 			errorMessage("Please enter digits only.");
 			return promptForLong(prompt);  //give the user another chance
 		}
-	}//getLong
+	}
 
-	/** Diplays a prompt to the user for a date and returns the user's input
-	 *  @param prompt the prompt
-	 *  @return the user input 
-	 */
+	// Diplays a prompt to the user for a date and returns the user's input
 	public Date promptForDate(String prompt)
 	{
 		try
@@ -133,13 +101,9 @@ public class UserInterface
 			return promptForDate(prompt); //give the user another chance
 		}
 
-	}//promptForDate
+	}
 
-	/** Displays a prompt to the user for a double value and 
-	 *  returns the user's input
-	 *  @param prompt the prompt
-	 *  @return the user input
-	 */
+
 	public double promptForDouble(String prompt)
 	{
 		try
@@ -154,14 +118,8 @@ public class UserInterface
 			errorMessage("Please enter digits and at most one decimal point");
 			return promptForDouble(prompt);  //give the user another chance
 		}
-	}//promptForDouble
+	}
 
-	/** Displays a prompt to the user for a double value, and returns the 
-	 *  user's input. If the user gives no value, the default value is returned.
-	 *  @param prompt the prompt
-	 *  @param defaultValue the defaultValue
-	 *  @return the user input or the defaultValue
-	 */
 	public double promptForDouble(String prompt, double defaultValue)
 	{
 		try
@@ -181,29 +139,22 @@ public class UserInterface
 			errorMessage("Please enter digits and at most one decimal point");
 			return promptForDouble(prompt);  //give the user another chance
 		}
-	}//promptForDouble
+	}
 
-	/** Returns the value given formatted as currency
-	 *  @param value the value to be formatted
-	 *  @return the value as a currency string
-	 */
+	// Returns the value given formatted as currency
 	public String formatAsCurrency(double value)
 	{
 		return currencyFormatter.format(value);
-	}//formatAsCurrency
+	}
 
-
-	//******************instance variable	
+	
 	private Scanner in;
 
-	//******************class variables
 	private static SimpleDateFormat dateFormatter = new SimpleDateFormat();
 	private static NumberFormat currencyFormatter 
 	= NumberFormat.getCurrencyInstance(Locale.US);
 
-	/** Required format for input of dates
-	 */
 	public static final String DATE_FORMAT = "MM-dd-yyyy";
 
 
-}//class UserInterface
+}

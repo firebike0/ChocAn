@@ -8,11 +8,8 @@ import mdcs.csc440.chocan.Beans.Service;
 import mdcs.csc440.chocan.Beans.Controller.Services;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-/** Control class to co-ordinate the use case Maintain Service.  A Service can
- *  be added, updated or deleted.
- *  @author Jean Naude 
- *  @version 1.0 March 2009
- */
+//Control class to co-ordinate the use case Maintain Service.  A Service can be added, updated or deleted.
+
 
 public class ServiceMaintainer
 {
@@ -50,7 +47,6 @@ public class ServiceMaintainer
 				}
 			}while (choice != 4);
 
-			//close the service collection 
 			services.close();
 		}
 		catch (ParseException ex)  //Error in file format
@@ -63,9 +59,8 @@ public class ServiceMaintainer
 			//occurs if the file cannot be created
 			ui.errorMessage(ex.getMessage());
 		}		
-	}//default constructor
+	}
 
-	// Allows the user to add a new service to the collection
 	private void addService()
 	{
 		try
@@ -91,9 +86,8 @@ public class ServiceMaintainer
 			//occurs if the service code is already in use
 			ui.errorMessage(ex.getMessage());
 		}
-	}//addService
+	}
 
-	// Allows the user to update an existing service's details
 	private void editService()
 	{
 		ui.message("\tEdit a service\n\n");
@@ -124,10 +118,8 @@ public class ServiceMaintainer
 			ui.message(aService.toFormattedString());
 		}
 		else ui.errorMessage("Service code " + code + " cannot be found.\n");
-	}//editService
+	}
 
-
-	//  Allows the user to delete an existing service
 	private void deleteService()
 	{
 		ui.message("\tDelete a service\n\n");
@@ -162,9 +154,8 @@ public class ServiceMaintainer
 		else
 			ui.errorMessage("Service code " + code + " cannot be found.");			
 
-	}//deleteService
+	}
 
-	//Utility method to get user input and update attributes of a service
 	private void updateService(UserInterface ui, Service aService
 			, boolean retainOldValue)
 	{
@@ -201,17 +192,13 @@ public class ServiceMaintainer
 					+ "Press Enter for details that are correct.");
 			updateService(ui, aService, true);    //Give the user another chance
 		}
-	}//updateService
+	}
 
-	//**************instance variables
 	private UserInterface ui;
 	private Services services;
 
-	//********************************************************************
-	/**
-	 * Runs the ServiceMaintainer independently of the rest of the system.
-	 * @param args not used
-	 */
+	//Runs the ServiceMaintainer independently of the rest of the system.
+
 	public static void main(String[] args)
 	{
 		try
@@ -223,6 +210,6 @@ public class ServiceMaintainer
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main
+	}
 
-}//class ServiceMaintainer
+}

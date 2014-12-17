@@ -7,29 +7,15 @@ import java.io.FileNotFoundException;
 import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.Beans.Provider;
 
-/** This class represents a collection of Provider objects.  Provider objects 
- *  can be added to the collection, deleted from the collection, 
- *  updated and searched for in the collection.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */ 
+// This class represents a collection of Provider objects.
 public class Providers extends Persons
 {
 
-	/**
-	 * Creates a new empty Providers object
-	 */
 	public Providers()
 	{
-	}//default constructor
-
-	/** Reads all the providers in the FILE_NAME text file into the collection.
-	 *  @throws NumberFormatException if the provider number is not a valid 
-	 *          integer
-	 *  @throws IllegalArgumentException if any of the values are invalid.
-	 *  @throws ArrayIndexOutOfBoundsException if there are not enough values 
-	 *             in the string
-	 */
+	}
+	
+	// Reads all the providers in the FILE_NAME text file into the collection.
 	public void open()
 	{
 		//Initialize the next number if this has not already been done
@@ -42,16 +28,13 @@ public class Providers extends Persons
 			FileReader reader = new FileReader(FILE_NAME);
 			inFile = new Scanner(reader);
 
-			//each line of the text file represents one provider
 			while(inFile.hasNextLine())
 			{
-				//read the next line
 				String line = inFile.nextLine();
 
 				//create a provider with this data
 				Provider aProvider = new Provider(line);
 
-				//add provider to collection
 				add(aProvider);
 			}
 		}
@@ -63,28 +46,21 @@ public class Providers extends Persons
 		{
 			if (inFile != null)inFile.close();
 		}     
-	}//open
+	}
 
-	/** Writes all the providers in the collection to the FILE_NAME text file.
-	 *  @throws FileNotFoundException if the file cannot be created
-	 */   
+	// Writes all the providers in the collection to the FILE_NAME text file.
 	public void close() throws FileNotFoundException
 	{
 		super.close();
 		saveToFile(FILE_NAME);
-	}//close
+	}
 
-	/** Searches for a provider with the given provider number in the collection.
-	 *  @param providerNumber the number for which to search
-	 *  @return the provider if found, otherwise null
-	 */
+	// Searches for a provider with the given provider number in the collection.
 	public Provider find(long providerNumber)
 	{
 		return (Provider)search(providerNumber);
-	}//find
+	}
+	
+	private static final String FILE_NAME = "Providers.txt";
 
-
-	//******************class variable
-	private static final String FILE_NAME = "Providers.txt";  //default store
-
-}//class Providers
+}

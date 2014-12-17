@@ -14,18 +14,11 @@ import mdcs.csc440.chocan.Beans.Controller.Providers;
 import mdcs.csc440.chocan.Beans.Controller.Services;
 import mdcs.csc440.chocan.Reports.MemberReport;
 
-/** Control class to co-ordinate the use case Produce Member Report.
-*  @author Jean Naude
-*  @version 1.0 March 2009
-*/
+//Control class that handles the use case Produce Member Report
+
 public class MemberReportGenerator 
 {
-/** Creates a new member report generator which creates a new member report.
-*  @param member the member about whom the report is generated
-*  @param endDate a date within the week for which the report is to be
-*         generated
-*  @throws FileNotFoundException if the file cannot be created.
-*/
+
 public MemberReportGenerator(Member member, Date endDate) 
 						throws FileNotFoundException
 {
@@ -45,13 +38,11 @@ providers = new Providers();
 providers.open();
 services = new Services();
 services.open();
-   					
-//Get all claims submitted for services to this member, ordered by
-//service date
+					
 ArrayList<Visit> memberVisits = 
 visits.findByMember(member.getNumber());
 	
-//for each claim
+//for each visit
 for (Visit nextVisit : memberVisits)
 {
 	//test whether within date range
@@ -79,10 +70,10 @@ for (Visit nextVisit : memberVisits)
 		report.addDetail(nextVisit.getServiceDate(), serviceName,
 				providerName);
 		
-	}//if date in specified week
-}//for
+	}
+}
 
-}//try
+}
 catch (ParseException ex)
 {
 report.addErrorMessage(ex.getMessage());
@@ -94,7 +85,7 @@ if (providers != null) providers.close();
 if (services != null) services.close();
 }		
 	
-}//constructor
+}
 
 /** Returns the report
 *  @return the report
@@ -102,9 +93,9 @@ if (services != null) services.close();
 public MemberReport getReport()
 {
 return report;
-}//getReport
+}
 
-//********************instance variable
+
 private MemberReport report;
 
-}//class MemberReportGenerator
+}

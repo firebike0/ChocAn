@@ -2,19 +2,11 @@ package mdcs.csc440.chocan.UI;
 
 import java.util.NoSuchElementException;
 
-/** This class provides a testing interface for the ChocAn software product.
- *  The main method starts the product and allows the tester to simulate the 
- *  provider subsystem, the data maintenance subsystem, the reporting subsystem
- *  and the accounting procedure.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//This class allows for testing the ChocAn software product
+
 public class ChocAnSystem
 {
 
-	/**
-	 * Creates a new ChocAnSystem.
-	 */
 	public ChocAnSystem()
 	{
 		UserInterface ui = new UserInterface();
@@ -51,14 +43,13 @@ public class ChocAnSystem
 		{
 			ui.message("\nEnd of test run.\n");
 		}
-	}//default constructor
+	}
 
 
-	/** Starts the testing interface
-	 */
+	// Starts the testing interface
 	public static void main(String [] args)
 	{
 		new ChocAnSystem();
-	}//main	
+	}
 
-}//class ChocAnSystem
+}

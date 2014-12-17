@@ -8,15 +8,11 @@ import mdcs.csc440.chocan.Beans.ProviderDirectory;
 import mdcs.csc440.chocan.Beans.Service;
 import mdcs.csc440.chocan.Beans.Controller.Services;
 
-/** Control class that co-ordinates use case Request Provider Directory
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//Control class that handles the Request Provider Directory
+
 public class ServiceReportGenerator
 {
-	/** Creates a new service report generator object which creates a new
-	 *  provider directory (service report).
-	 */
+
 	public ServiceReportGenerator()
 	{
 		try
@@ -48,17 +44,14 @@ public class ServiceReportGenerator
 			//occurs if the file format is incorrect
 			report.addErrorMessage(ex.getMessage());
 		}
-	}//default constructor
-
-	/** Returns the report
-	 *  @return the report
-	 */
+	}
+	
 	public ProviderDirectory getReport()
 	{
 		return report;
-	}//getReport
-
-	//********************instance variable
+	}
+	
 	private ProviderDirectory report;
 
-}//class ServiceReportGenerator
+}
+

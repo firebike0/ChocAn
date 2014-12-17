@@ -11,17 +11,11 @@ import mdcs.csc440.chocan.Beans.Service;
 import mdcs.csc440.chocan.Beans.Controller.Visits;
 import mdcs.csc440.chocan.Beans.Controller.Services;
 
-/** The ClaimSubmitter control class provides the behaviour for the 
- *  Submit Claim use case, after the Verify Member use case has completed.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//The VisitSubmitter control class provides information for Submit Visit , after the Verify Member use case has completed.
+
 public class VisitSubmitter
 {
-	/** Creates a new Claim Submitter object
-	 *  @param theProvider the provider submitting the claim
-	 *  @param theMember the member to whom the service was provided
-	 */
+
 	public VisitSubmitter(Provider theProvider, Member theMember)
 	{
 		try
@@ -60,8 +54,7 @@ public class VisitSubmitter
 			} while (!correctCode);
 
 
-			//Create new claim.  The constructor initializes
-			//the submission date and time with the system time.
+			//The constructor initializes the date and time with the system time.
 			Visit aVisit = new Visit(theService.getCode(),
 					theProvider.getNumber(), theMember.getNumber(),
 					serviceDate);
@@ -81,7 +74,6 @@ public class VisitSubmitter
 		}
 		catch (IllegalArgumentException ex)
 		{
-			//Thrown by the constructor for the claim object.
 			//This should only happen if the comments entered are too long.
 			ui.errorMessage(ex.getMessage());
 		}
@@ -91,11 +83,10 @@ public class VisitSubmitter
 			ui.errorMessage(ex.getMessage());
 		}		
 
-	}//default constructor
-
-	//*******************instance variables
+	}
+	
 	private Services services;
 	private Visits visits;
 
 	private UserInterface ui;
-}//class ClaimSubmitter
+}

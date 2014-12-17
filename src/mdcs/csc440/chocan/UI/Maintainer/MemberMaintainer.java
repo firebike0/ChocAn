@@ -7,18 +7,12 @@ import mdcs.csc440.chocan.Beans.Member;
 import mdcs.csc440.chocan.Beans.Controller.Members;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-/** Control class to co-ordinate the use case Maintain Member.  A Member can
- *  be added, updated or deleted.
- *  @author Jean Naude 
- *  @version 1.0 March 2009
- */
+//Control class to Maintain Member.  A Member can  be added, updated or deleted.
+
 
 public class MemberMaintainer extends PersonMaintainer
 {
 
-	/**
-	 * Creates a new MemberMaintainer control object
-	 */
 	public MemberMaintainer()
 	{
 		try
@@ -59,9 +53,8 @@ public class MemberMaintainer extends PersonMaintainer
 			ui.errorMessage(ex.getMessage());
 		}
 
-	}//default constructor
+	}
 
-	// Allows the user to add a new member to the collection
 	private void addMember()
 	{
 		ui.message("\tAdd a Member\n");
@@ -71,14 +64,12 @@ public class MemberMaintainer extends PersonMaintainer
 		//Get values for attributes
 		//false for last parameter means required attributes must be provided
 		updatePerson(ui, newMember, false); 
-		//Add to collection
 		members.add(newMember);	
 		//Display the member
 		ui.message("New member details: \n");
 		ui.message(newMember.toFormattedString() + "\n");
-	}//addMember
+	}
 
-	// Allows the user to update an existing member's details
 	private void editMember()
 	{
 		ui.message("\tEdit a Member\n\n");
@@ -86,7 +77,7 @@ public class MemberMaintainer extends PersonMaintainer
 		long number = ui.promptForLong("Member number: ");
 		//Search for member
 		Member aMember = members.find(number);
-		if (aMember != null) // if member found
+		if (aMember != null)
 		{
 			//Display member
 			ui.message("Current Member Details: \n" 
@@ -113,7 +104,6 @@ public class MemberMaintainer extends PersonMaintainer
 				else validStatus = true;
 			} while (!validStatus);
 
-			//update the member in the collection
 			members.update(aMember);
 
 			//display updated details as confirmation of success
@@ -121,9 +111,8 @@ public class MemberMaintainer extends PersonMaintainer
 			ui.message(aMember.toFormattedString() + "\n");
 		}
 		else ui.errorMessage("Member number " + number + " cannot be found.\n");
-	}//editMember
+	}
 
-	//  Allows the user to delete an existing member
 	private void deleteMember()
 	{
 		ui.message("\tDelete a Member\n\n");
@@ -158,17 +147,13 @@ public class MemberMaintainer extends PersonMaintainer
 		else
 			ui.errorMessage("Member number " + number + " cannot be found.\n");			
 
-	}//deleteMember
+	}
 
-	//**************instance variables
 	private UserInterface ui;
 	private Members members;
 
-	//*******************************************************************
-	/**
-	 * Runs the MemberMaintainer independently of the rest of the system.
-	 * @param args not used
-	 */
+	// Runs the MemberMaintainer independently of the rest of the system.
+
 	public static void main(String[] args)
 	{
 		try
@@ -180,6 +165,6 @@ public class MemberMaintainer extends PersonMaintainer
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main
+	}
 
-}//class MemberMaintainer
+}

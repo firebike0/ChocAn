@@ -10,18 +10,10 @@ import mdcs.csc440.chocan.Beans.Controller.Members;
 import mdcs.csc440.chocan.Beans.Controller.Providers;
 import mdcs.csc440.chocan.Reports.Generator.ServiceReportGenerator;
 
-/** This class simulates the provider terminal interface, i.e. the Provider
- *  Subsystem.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
-
+//This class simulates the provider terminal interface
 public class ProviderInterface
 {
 
-	/**
-	 * Creates a new ProviderInterface.  
-	 */
 	public ProviderInterface()
 	{
 		ui = new UserInterface();
@@ -50,11 +42,8 @@ public class ProviderInterface
 			}
 		}while (choice != 3);
 
-	}// default Constructor
+	}
 
-	//Use Case Maintain Session start here and ends when the user chooses Quit.
-	//Prompts the provider for his provider number and verifies the number.
-	//The provider cannot continue until he has entered a valid provider number.
 	private void logon()
 	{
 		try
@@ -82,11 +71,9 @@ public class ProviderInterface
 			ui.errorMessage(ex.getMessage());
 		}
 
-	}//logon
+	}
 
 	//Verify Member and Submit Claim use cases
-	//Allows the provider to continue to submit a claim after verifying the 
-	//member only if the member's status is Active.
 	private void verifyMember()
 	{
 		try
@@ -113,13 +100,13 @@ public class ProviderInterface
 
 			if (canContinue)  //Can continue only if member is active
 			{
-				//Submit Claim Use Case extension to the Verify Member Use Case
+				//Submit Visit Use Case extension to the Verify Member Use Case
 				String answer = ui.promptForString
 						("Continue to submit claim? (Y)es or (N)o: ");
 				if (answer != null && answer.length() >= 1)        
 					if (Character.toUpperCase(answer.charAt(0)) == 'Y')
 					{
-						//Create a new ClaimSubmitter control object
+						//Create a new VisitSubmitter control object
 						new VisitSubmitter(theProvider, theMember);           
 					}
 			}
@@ -131,9 +118,8 @@ public class ProviderInterface
 			//occurs if the file cannot be created
 			ui.errorMessage(ex.getMessage());
 		}
-	}//verifyMember
+	}
 
-	// Generates a provider directory and sends it to provider by email
 	private void receiveDirectory()
 	{
 		try
@@ -154,18 +140,14 @@ public class ProviderInterface
 			ui.errorMessage(ex.getMessage());
 		}
 
-	}//receiveDirectory
+	}
 
-	//********************instance variables
 	private Provider theProvider;
 	private Member theMember;
 	private UserInterface ui;
 
-	//***********************************************************************
-	/**
-	 * Starts the provider subsystem independently of the other subsystems
-	 * @param args not used
-	 */
+	//Starts the provider subsystem independently of the other subsystems
+
 	public static void main(String[] args)
 	{
 		try
@@ -177,6 +159,5 @@ public class ProviderInterface
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main
-
-}//class ProviderInterface
+	}
+}

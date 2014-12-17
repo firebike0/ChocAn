@@ -15,11 +15,7 @@ import mdcs.csc440.chocan.Reports.Generator.AccountsPayableReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.MemberReportGenerator;
 import mdcs.csc440.chocan.Reports.Generator.ProviderReportGenerator;
 
-/** The class simulates the reporting subsystem, 
- *  i.e. the use case Request Report
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//The class simulates the Manager subsystem
 public class ManagerInterface
 {
 
@@ -28,7 +24,6 @@ public class ManagerInterface
 	 */
 	public ManagerInterface()
 	{
-		//set up user interface and menu
 		ui = new UserInterface();
 		String menuText = "1.\tProvider Report\n" +
 				"2.\tMember Report\n" +
@@ -59,9 +54,8 @@ public class ManagerInterface
 			}
 		}while (choice != 4);
 
-	}// default Constructor
+	}
 
-	// Scenario: Request Provider Report
 	private void providerReport()
 	{
 		try
@@ -101,18 +95,16 @@ public class ManagerInterface
 				report.print(theProvider.getName());
 				ui.message("The report has been saved as " 
 						+ report.getFileName() +"\n");
-			}//if
+			}
 			else ui.message("Report not saved");
 		}
 		catch (FileNotFoundException ex)			
 		{
-			//occurs if the file cannot be created
 			ui.errorMessage(ex.getMessage());
 		}
 
-	}//providerReport
+	}
 
-	// Scenario: Request Member Report
 	private void memberReport()
 	{
 		try
@@ -153,7 +145,7 @@ public class ManagerInterface
 				report.print(theMember.getName());
 				ui.message("The report has been saved as " 
 						+ report.getFileName() +"\n");
-			}//if	
+			}	
 			else ui.message("Report not saved");
 		}		
 		catch (FileNotFoundException ex)			
@@ -161,10 +153,8 @@ public class ManagerInterface
 			//occurs if the file cannot be created
 			ui.errorMessage(ex.getMessage());
 		}
-	}//memberReport
+	}
 
-
-	// Scenario: Request Accounts Payable Report
 	private void accountsPayableReport()
 	{
 		try
@@ -200,16 +190,12 @@ public class ManagerInterface
 			//occurs if the file cannot be created
 			ui.errorMessage(ex.getMessage());
 		}
-	}//accountsPayableReport
+	}
 
-	//***********************instance variable
 	private UserInterface ui;
 
-	//***********************************************************************
-	/**
-	 * Starts the reporting subsystem independently of the other subsystems
-	 * @param args not used
-	 */
+	//Starts the reporting subsystem independently of the other subsystems
+
 	public static void main(String[] args)
 	{
 		try
@@ -221,7 +207,7 @@ public class ManagerInterface
 			UserInterface ui = new UserInterface();
 			ui.message("\nEnd of test run.\n");
 		}
-	}//main
+	}
 
 
-}//class ManagerInterface
+}

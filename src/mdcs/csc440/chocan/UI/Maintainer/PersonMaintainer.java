@@ -3,28 +3,16 @@ package mdcs.csc440.chocan.UI.Maintainer;
 import mdcs.csc440.chocan.Beans.Person;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-/** Superclass for ProviderMaintainer and MemberMaintainer. 
- *  Generalizes common behaviour for subclasses.
- *  @author Jean Naude
- *  @version 1.0 March 2009
- */
+//Superclass for ProviderMaintainer and MemberMaintainer
+
 public abstract class PersonMaintainer
 {
-	/** Creates a new PersonMaintainer
-	 */
 	public PersonMaintainer()
 	{
-	}//default constructor
+	}
 
-	/** Prompts the user for the new values with which to update a person.
-	 *  @param ui the user interface with which to communicate with the user
-	 *  @param aPerson the person object to update
-	 *  @param retainOldValue if true, the current value of an attribute is 
-	 *								  retained if the user does not specify a new value.
-	 *                        If false, and a value is required for the 
-	 *                        attribute, the user will be prompted repeatedly
-	 *                        to enter a value until the value is valid.
-	 */	
+	// Prompts the user for the new values with which to update a person.
+	
 	public void updatePerson(UserInterface ui, Person aPerson
 			, boolean retainOldValue)
 	{
@@ -61,6 +49,6 @@ public abstract class PersonMaintainer
 			ui.message("\nPlease repeat input.\n");
 			updatePerson(ui, aPerson, true);    //Give the user another chance
 		}
-	}//updatePerson
+	}
 
-}//class PersonMaintainer
+}
