@@ -1,5 +1,7 @@
 package mdcs.csc440.chocan.Beans;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 //Entity class that models a member
 public class Member extends Person
 {
@@ -53,7 +55,7 @@ public class Member extends Person
 
 	private static final String MEMBER_STATUS_VALUES = "AS";
 
-	// Message giving the characters that are valid for the member status
+	// Message giving the characters that are valid for the member status input
 	public static final String MEMBER_STATUS_HELP = "Member status must be "
 			+ "one of the following characters: A(ctive) or S(uspended)";
 

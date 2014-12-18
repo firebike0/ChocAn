@@ -85,13 +85,17 @@ public class UserInterface
 		}
 	}
 
-	// Diplays a prompt to the user for a date and returns the user's input
+	// Displays a prompt to the user for a date and returns the user's input
 	public Date promptForDate(String prompt)
 	{
 		try
 		{
 			message(prompt);  //display prompt
 			String dateString = in.nextLine();  //read input
+			if(!dateString.matches("([0-9]{2})-([0-9]{2})-([0-9]{4})")){
+				errorMessage("Invalid date. Please follow format given.");
+				return promptForDate(prompt);
+			}
 			dateFormatter.applyPattern(DATE_FORMAT); 
 			return dateFormatter.parse(dateString);  //convert to a date
 		}

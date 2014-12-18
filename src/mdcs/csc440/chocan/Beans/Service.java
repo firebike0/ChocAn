@@ -4,6 +4,8 @@ import java.text.NumberFormat;
 import java.text.ParseException;
 import java.util.Locale;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 //  Entity class that models a service
 public class Service 
 {
@@ -44,39 +46,19 @@ public class Service
 
 	public void setCode(String aCode)
 	{
-		if (aCode == null || aCode.length() == 0)
-			throw new IllegalArgumentException("A service code is required");
-		else if (aCode.length() > CODE_LENGTH)
-			throw new IllegalArgumentException
-			("The service code may not be more than "
-					+ CODE_LENGTH + " digits");
-		else
-		{
-			//check that each character is a digit
-			for (int i = 0; i < aCode.length(); i++)
-				if (! Character.isDigit(aCode.charAt(i)))
-					throw new IllegalArgumentException
-					("The service code may contain digits only");
-		}
+		validator.validateServiceCode(aCode);
 		code = aCode;
 	}
 
 	public void setName (String aName)
 	{
-		if (aName == null || aName.length() == 0)
-			throw new IllegalArgumentException("A service name is required");
-		else if (aName.length() > NAME_LENGTH)
-			throw new IllegalArgumentException
-			("The service name may not be more than " 
-					+ NAME_LENGTH + " characters");
+		validator.validateServiceName(aName);
 		name = aName;
 	}
 
 	public void setFee(double aFee)
 	{
-		if (aFee < 0 || aFee >= MAX_FEE)
-			throw new IllegalArgumentException
-			("The fee must be between $0 and " + formatter.format(MAX_FEE));
+		validator.validateServiceFee(aFee);
 		fee = aFee;
 	}
 
@@ -108,12 +90,7 @@ public class Service
 	private String code;
 	private String name;
 	private double fee;
-
-	public static final int CODE_LENGTH = 6;
-
-	public static final int NAME_LENGTH = 20;
-
-	public static final double MAX_FEE = 1000;
+	private Validator validator = new Validator();
 
 	private static final char SEPARATOR = '#';
 	private static NumberFormat formatter = NumberFormat.getCurrencyInstance(Locale.US);
