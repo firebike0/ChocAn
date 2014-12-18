@@ -17,7 +17,7 @@ public class Validator {
 	public static final int STATE_LENGTH = 2;
 	public static final int ZIP_LENGTH = 5;
 	
-	public void validatePersonName(String aName){
+	public void validatePersonName(String aName) throws IllegalArgumentException{
 		if(aName == null || aName.length() == 0)
 			throw new IllegalArgumentException("A name is required");
 		else if (aName.length() > PERSON_NAME_LENGTH)
