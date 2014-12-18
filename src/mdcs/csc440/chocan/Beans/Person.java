@@ -62,17 +62,10 @@ public abstract class Person
 	{
 		return email;
 	}
-
-	public static final int NAME_LENGTH = 25; 
 	
 	public void setName(String aName)
 	{
-//		validator.validatePersonName(aName);
-		if(aName == null || aName.length() == 0)
-			throw new IllegalArgumentException("A name is required");
-		else if (aName.length() > NAME_LENGTH)
-			throw new IllegalArgumentException("Name may not be more than "
-					+ NAME_LENGTH + " characters");
+		validator.validatePersonName(aName);
 		name = aName;
 	}	
 
@@ -157,7 +150,7 @@ public abstract class Person
 		nextNumber = aNextNumber;
 	}
 
-	private Validator validator;
+	private Validator validator = new Validator();
 	private long number;  // allow ability to hold 9 digits
 	private String name;   
 	private String street;   

@@ -49,6 +49,6 @@ public class Member extends Person
 		return super.toFormattedString() + "\nStatus:         " + status;
 	}
 
-	private Validator validator;
+	private Validator validator = new Validator();
 	private char status;
 }

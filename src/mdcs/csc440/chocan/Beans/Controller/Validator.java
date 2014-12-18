@@ -7,6 +7,8 @@ import java.util.Locale;
 // class takes care of all validation in the system.
 public class Validator {
 	
+	public Validator(){
+	}
 	
 ////////Person Validation
 	public static final int PERSON_NAME_LENGTH = 25;
