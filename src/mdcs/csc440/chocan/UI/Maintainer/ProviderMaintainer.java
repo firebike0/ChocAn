@@ -7,12 +7,10 @@ import mdcs.csc440.chocan.Beans.Provider;
 import mdcs.csc440.chocan.Beans.Controller.ProviderController;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-//Control class to co-ordinate the use case Maintain Provider.  A Provider can be added, updated or deleted.
+//Control class control providers.  A Provider can be added, updated or deleted.
 
 public class ProviderMaintainer extends PersonMaintainer
 {
-
-
 	 //Creates a new ProviderMaintainer control object
 
 	public ProviderMaintainer()
@@ -128,20 +126,4 @@ public class ProviderMaintainer extends PersonMaintainer
 
 	private UserInterface ui;	   
 	private ProviderController providers;   
-
-	 // Runs the ProviderMaintainer independently of the rest of the system.
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new ProviderMaintainer();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}	
-
 }

@@ -17,7 +17,7 @@ public abstract class Report
 
 	public Report ()
 	{
-		// Send all output to the Appendable object sb
+		// Send all output to the StringBuilder
 		sb = new StringBuilder();     
 		formatter = new Formatter(sb);
 
@@ -64,7 +64,7 @@ public abstract class Report
 		sendByEmail(printerName);
 	}
 
-	/** Returns the name of the file to which this report was last saved.
+	/* Returns the name of the file to which this report was last saved.
 	 *  If called before print or sendByEmail is called, null is returned.
 	 */
 	public String getFileName()

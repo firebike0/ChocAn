@@ -145,19 +145,4 @@ public class ProviderInterface
 	private Provider theProvider;
 	private Member theMember;
 	private UserInterface ui;
-
-	//Starts the provider subsystem independently of the other subsystems
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new ProviderInterface();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}
 }

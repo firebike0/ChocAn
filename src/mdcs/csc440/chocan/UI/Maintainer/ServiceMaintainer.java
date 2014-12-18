@@ -195,20 +195,4 @@ public class ServiceMaintainer
 
 	private UserInterface ui;
 	private ServiceController services;
-
-	//Runs the ServiceMaintainer independently of the rest of the system.
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new ServiceMaintainer();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}
-
 }

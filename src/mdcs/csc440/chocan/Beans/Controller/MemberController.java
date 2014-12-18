@@ -63,6 +63,4 @@ public class MemberController extends PersonController
 	}
 
 	private static final String FILE_NAME = "Members.txt";  //default collection
-
-
 }

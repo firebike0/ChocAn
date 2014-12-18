@@ -25,8 +25,8 @@ public class Member extends Person
 
 	public void setStatus(char newStatus)
 	{
-		if (MEMBER_STATUS_VALUES.indexOf(newStatus) < 0)
-			throw new IllegalArgumentException(MEMBER_STATUS_HELP);
+		if (MEMBERSTATUS_VALUES.indexOf(newStatus) < 0)
+			throw new IllegalArgumentException(MEMBERSTATUS_HELP);
 		status = newStatus;
 	}
 
@@ -51,10 +51,10 @@ public class Member extends Person
 
 	private char status;
 
-	private static final String MEMBER_STATUS_VALUES = "AS";
+	private static final String MEMBERSTATUS_VALUES = "AS";
 
 	// Message giving the characters that are valid for the member status input
-	public static final String MEMBER_STATUS_HELP = "Member status must be "
+	public static final String MEMBERSTATUS_HELP = "Member status must be "
 			+ "one of the following characters: A(ctive) or S(uspended)";
 
 }

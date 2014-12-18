@@ -39,7 +39,7 @@ public class VisitSubmitter
 				String serviceCode = ui.promptForString("Service Code: ");
 				theService = services.find(serviceCode);
 				if (theService == null)
-					ui.errorMessage("Invalid code.  Please re-enter.");
+					ui.errorMessage("Invalid Service code. Please re-enter.");
 				else
 				{
 					//confirm the service

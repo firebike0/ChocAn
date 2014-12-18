@@ -72,7 +72,7 @@ public class PersonController
 	public void update(Person aPerson)
 	{
 		//Unnecessary to do anything in the ArrayList implementation
-		// -- aPerson is already in the list
+		// aPerson is already in the list
 		// Would be necessary to have this method if not using ArrayList in implementation
 	}
 
@@ -95,5 +95,4 @@ public class PersonController
 	private ArrayList<Person> personList;
 
 	private static final String FILE_NAME = "Persons.txt"; 
-
 }

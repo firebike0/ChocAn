@@ -19,9 +19,7 @@ import mdcs.csc440.chocan.Reports.Generator.ProviderReportGenerator;
 public class ManagerInterface
 {
 
-	/**
-	 * Creates a new Reporting Subsystem
-	 */
+	// Creates a new Reporting Subsystem
 	public ManagerInterface()
 	{
 		ui = new UserInterface();
@@ -184,21 +182,4 @@ public class ManagerInterface
 	}
 
 	private UserInterface ui;
-
-	//Starts the reporting subsystem independently of the other subsystems
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new ManagerInterface();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}
-
-
 }

@@ -58,7 +58,7 @@ public class EFTReportGenerator
 						double serviceFee;
 						Service service = services.find(nextVisit.getServiceCode());
 						if ( service == null)
-							throw new IllegalStateException("Invalid Code"); 
+							throw new IllegalStateException("Invalid Service Code"); 
 						else serviceFee = service.getFee();
 
 						totalFee += serviceFee;

@@ -16,7 +16,7 @@ public class UserInterface
 	public UserInterface()
 	{
 		in = new Scanner(System.in);
-	}//default constructor
+	}
 
 	// Displays the menu text given, prompts the user for his choice and returns the choice.
 
@@ -50,7 +50,7 @@ public class UserInterface
 
 	public void errorMessage(String msg)
 	{
-		System.out.println("\n\n***Error: " + msg + "\n");
+		System.out.println("\n**Error: " + msg + "\n");
 		System.out.print("Press enter to continue ...");
 		in.nextLine();
 	}
@@ -155,10 +155,7 @@ public class UserInterface
 	private Scanner in;
 
 	private static SimpleDateFormat dateFormatter = new SimpleDateFormat();
-	private static NumberFormat currencyFormatter 
-	= NumberFormat.getCurrencyInstance(Locale.US);
+	private static NumberFormat currencyFormatter = NumberFormat.getCurrencyInstance(Locale.US);
 
 	public static final String DATE_FORMAT = "MM-dd-yyyy";
-
-
 }

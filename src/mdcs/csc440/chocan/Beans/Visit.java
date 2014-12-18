@@ -62,14 +62,14 @@ public class Visit
 	public void setServiceCode(String aCode)
 	{
 		if (aCode == null || aCode.length() == 0)
-			throw new IllegalArgumentException("A service code is required");
+			throw new IllegalArgumentException("Service code must be required");
 		else if (aCode.length() > CODE_LENGTH)
-			throw new IllegalArgumentException("Service code may not be more than " 
+			throw new IllegalArgumentException("Service code can not be more than " 
 					+ CODE_LENGTH + " digits");
 		else
 			for (int i = 0; i < aCode.length(); i++)
 				if (!Character.isDigit(aCode.charAt(i)))
-					throw new IllegalArgumentException("Service code must consist " 
+					throw new IllegalArgumentException("Service code can only consist " 
 							+ "of digits only");
 		serviceCode = aCode;
 	}
@@ -77,21 +77,21 @@ public class Visit
 	public void setProviderNumber(long aNumber)
 	{
 		if (aNumber < 0)
-			throw new IllegalArgumentException("Invalid provider number");
+			throw new IllegalArgumentException("Invalid provider number! Try again.");
 		providerNumber = aNumber;
 	}
 	
 	public void setMemberNumber(long aNumber)
 	{
 		if (aNumber < 0)
-			throw new IllegalArgumentException("Invalid member number");
+			throw new IllegalArgumentException("Invalid member number! Try again.");
 		memberNumber = aNumber;
 	}
 	
 	public void setServiceDate(Date aDate)
 	{
 		if (aDate == null)
-			throw new IllegalArgumentException("The service date is required");
+			throw new IllegalArgumentException("Service date is required! Try again.");
 		else serviceDate = aDate;
 	}
 	

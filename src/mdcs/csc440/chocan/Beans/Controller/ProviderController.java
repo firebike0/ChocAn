@@ -62,5 +62,4 @@ public class ProviderController extends PersonController
 	}
 	
 	private static final String FILE_NAME = "Providers.txt";
-
 }

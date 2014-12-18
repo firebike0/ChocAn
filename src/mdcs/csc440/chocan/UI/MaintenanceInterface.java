@@ -36,20 +36,4 @@ public class MaintenanceInterface
 			}
 		}while (choice != 4);
 	}
-
-	//Starts the maintenance subsystem independently of the other subsystems
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new MaintenanceInterface();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}
-
 }

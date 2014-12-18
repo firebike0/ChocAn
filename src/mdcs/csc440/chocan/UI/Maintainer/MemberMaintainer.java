@@ -12,7 +12,6 @@ import mdcs.csc440.chocan.UI.UserInterface;
 
 public class MemberMaintainer extends PersonMaintainer
 {
-
 	public MemberMaintainer()
 	{
 		try
@@ -40,7 +39,7 @@ public class MemberMaintainer extends PersonMaintainer
 				case 2: editMember(); break;
 				case 3: deleteMember(); break;
 				case 4: break;
-				default: ui.errorMessage("Invalid choice.  Please re-enter.");
+				default: ui.errorMessage("Invalid menu choice. Please re-enter.");
 				}
 			}while (choice != 4);
 
@@ -147,20 +146,4 @@ public class MemberMaintainer extends PersonMaintainer
 
 	private UserInterface ui;
 	private MemberController members;
-
-	// Runs the MemberMaintainer independently of the rest of the system.
-
-	public static void main(String[] args)
-	{
-		try
-		{
-			new MemberMaintainer();
-		}
-		catch (NoSuchElementException ex)
-		{
-			UserInterface ui = new UserInterface();
-			ui.message("\nEnd of test run.\n");
-		}
-	}
-
 }

@@ -46,7 +46,7 @@ public abstract class PersonMaintainer
 			ui.message("Current details:\n");
 			ui.message(aPerson.toFormattedString());
 			ui.message("\nPlease repeat input.\n");
-			updatePerson(ui, aPerson, true);    //Give the user another chance
+			updatePerson(ui, aPerson, true);    //Give the user another chance to enter in details
 		}
 	}
 

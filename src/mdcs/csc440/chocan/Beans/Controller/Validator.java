@@ -33,12 +33,12 @@ public class Validator {
 		else if (aState.length() > 0)
 		{
 			if (aState.length() != STATE_LENGTH) 
-				throw new IllegalArgumentException("State must be "
+				throw new IllegalArgumentException("State must be exactly "
 						+ STATE_LENGTH + " letters");
 			//test whether each character is a letter
 			for (int i = 0; i < STATE_LENGTH; i++)
 				if(! Character.isLetter(aState.charAt(i)))
-					throw new IllegalArgumentException("State must be " 
+					throw new IllegalArgumentException("State must be exactly " 
 							+ STATE_LENGTH + " letters only");
 		}
 	}
@@ -48,13 +48,13 @@ public class Validator {
 		{
 			//test for correct length
 			if (aZip.length() != ZIP_LENGTH) 
-				throw new IllegalArgumentException("Zip code must be " 
+				throw new IllegalArgumentException("Zip code must be exactly " 
 						+ ZIP_LENGTH + " digits");
 
 			//test whether each character is a digit
 			for (int i = 0; i < ZIP_LENGTH; i++)
 				if (!Character.isDigit(aZip.charAt(i)))
-					throw new IllegalArgumentException("Zip code must be " 
+					throw new IllegalArgumentException("Zip code must be exactly " 
 							+ ZIP_LENGTH + " digits only");
 		}
 	}
@@ -75,7 +75,7 @@ public class Validator {
 /////////////////////SERVICE VALIDATION
 	public void validateServiceCode(String aCode) throws IllegalArgumentException{
 		if (aCode == null || aCode.length() == 0)
-			throw new IllegalArgumentException("A service code is required");
+			throw new IllegalArgumentException("A service code must be present");
 		else if (aCode.length() > CODE_LENGTH)
 			throw new IllegalArgumentException
 			("The service code may not be more than "
@@ -91,7 +91,7 @@ public class Validator {
 	}
 	public void validateServiceName(String aName) throws IllegalArgumentException{
 		if (aName == null || aName.length() == 0)
-			throw new IllegalArgumentException("A service name is required");
+			throw new IllegalArgumentException("A service name must be present");
 		else if (aName.length() > SERVICE_NAME_LENGTH)
 			throw new IllegalArgumentException
 			("The service name may not be more than " 

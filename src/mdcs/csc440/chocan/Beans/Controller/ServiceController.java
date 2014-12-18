@@ -12,9 +12,6 @@ import mdcs.csc440.chocan.Beans.Service;
 // This class models a collection of Service objects.
 public class ServiceController
 {
-	
-	private ArrayList<Service> serviceList;
-
 	public ServiceController() 
 	{
 		serviceList = new ArrayList<Service>();
@@ -76,7 +73,7 @@ public class ServiceController
 	{
 		Service tempService = find(aService.getCode());
 		if (tempService != null) throw new IllegalArgumentException
-		("A service with this code already exists");
+		("A service with this code is already present");
 		for (int i = 0; i < serviceList.size(); i++)
 		{
 			if (aService.getName().compareTo(serviceList.get(i).getName()) < 0)
@@ -112,8 +109,9 @@ public class ServiceController
 	public ArrayList getAllOrderedByName()
 	{
 		return serviceList;
+	
 	}
-
+	private ArrayList<Service> serviceList;
+	
 	private static final String FILE_NAME = "Services.txt"; 
-
 }
