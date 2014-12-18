@@ -8,6 +8,8 @@ import java.text.ParseException;
 import java.text.NumberFormat;
 import java.util.Locale;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 //UserInterface class holds all of the user data within the system.
 
 public class UserInterface
@@ -85,13 +87,18 @@ public class UserInterface
 		}
 	}
 
-	// Diplays a prompt to the user for a date and returns the user's input
+	// Displays a prompt to the user for a date and returns the user's input
 	public Date promptForDate(String prompt)
 	{
 		try
 		{
 			message(prompt);  //display prompt
 			String dateString = in.nextLine();  //read input
+			//validating date input
+			while(!dateString.matches("([0-9]{2})-([0-9]{2})-([0-9]{4})")){
+				message(prompt);  			 //display prompt
+				dateString = in.nextLine();  //read input
+			}
 			dateFormatter.applyPattern(DATE_FORMAT); 
 			return dateFormatter.parse(dateString);  //convert to a date
 		}
@@ -102,7 +109,6 @@ public class UserInterface
 		}
 
 	}
-
 
 	public double promptForDouble(String prompt)
 	{

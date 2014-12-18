@@ -1,8 +1,10 @@
 package mdcs.csc440.chocan.Beans;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 // Entity class that models persons that can be providers or members.
 public abstract class Person
-{
+{	
 	// Creates a default person using a unique number
 	public Person()
 	{
@@ -61,76 +63,47 @@ public abstract class Person
 		return email;
 	}
 
+	public static final int NAME_LENGTH = 25; 
+	
 	public void setName(String aName)
 	{
-		if (aName == null || aName.length() == 0)
+//		validator.validatePersonName(aName);
+		if(aName == null || aName.length() == 0)
 			throw new IllegalArgumentException("A name is required");
 		else if (aName.length() > NAME_LENGTH)
-			throw new IllegalArgumentException("Name may not be more than " 
+			throw new IllegalArgumentException("Name may not be more than "
 					+ NAME_LENGTH + " characters");
 		name = aName;
 	}	
 
 	public void setStreet(String aStreet)
 	{
-		if (aStreet == null) aStreet = "";	//Replace null with an empty string
-		else if (aStreet.length() > STREET_LENGTH)
-			throw new IllegalArgumentException("Street may not be more than " 
-					+ STREET_LENGTH + " characters");
+		validator.validatePersonStreet(aStreet);
 		street = aStreet;
 	}
 
 	public void setCity(String aCity)
 	{
-		if (aCity == null) aCity = "";		//Replace null with an empty string
-		else if (aCity.length() > CITY_LENGTH)
-			throw new IllegalArgumentException("City may not be more than " 
-					+ CITY_LENGTH + " characters");
+		validator.validatePersonCity(aCity);
 		city = aCity;
 	}
 
 	public void setState(String aState)
 	{
-		if (aState == null) aState = "";	//Replace null with an empty string
-		else if (aState.length() > 0)
-		{
-			if (aState.length() != STATE_LENGTH) 
-				throw new IllegalArgumentException("State must be exactly "
-						+ STATE_LENGTH + " letters");
-			//test whether each character is a letter
-			for (int i = 0; i < STATE_LENGTH; i++)
-				if(! Character.isLetter(aState.charAt(i)))
-					throw new IllegalArgumentException("State must be " 
-							+ STATE_LENGTH + " letters only");
-		}		
-
+		validator.validatePersonState(aState);
 		state = aState;
 	}
 
 	public void setZip(String aZip)
 	{
-		if (aZip == null) aZip = "";         //Replace null with an empty string
-		else if (aZip.length() > 0)          //if given, zip must be 5 digits
-		{
-			//test for correct length
-			if (aZip.length() != ZIP_LENGTH) 
-				throw new IllegalArgumentException("Zip code must be exactly " 
-						+ ZIP_LENGTH + " digits");
-
-			//test whether each character is a digit
-			for (int i = 0; i < ZIP_LENGTH; i++)
-				if (!Character.isDigit(aZip.charAt(i)))
-					throw new IllegalArgumentException("Zip code must be " 
-							+ ZIP_LENGTH + " digits only");
-		}		
-
+		validator.validatePersonZip(aZip);
 		zip = aZip;
 	}
 
 	// Changes the person's email address.  No validation is done.
 	public void setEmail (String anEmail)
 	{
-		if (anEmail == null) anEmail = "";
+		validator.validatePersonEmail(anEmail);
 		email = anEmail;
 	}
 	
@@ -184,6 +157,7 @@ public abstract class Person
 		nextNumber = aNextNumber;
 	}
 
+	private Validator validator;
 	private long number;  // allow ability to hold 9 digits
 	private String name;   
 	private String street;   
@@ -196,15 +170,5 @@ public abstract class Person
 
 	// The character used to separate fields
 	protected static final char SEPARATOR = '#';
-
-	public static final int NAME_LENGTH = 25;
-
-	public static final int STREET_LENGTH = 25;
-
-	public static final int CITY_LENGTH = 14;
-
-	public static final int STATE_LENGTH = 2;
-
-	public static final int ZIP_LENGTH = 5;
 
 }

@@ -1,9 +1,10 @@
 package mdcs.csc440.chocan.Beans;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 //Entity class that models a member
 public class Member extends Person
 {
-
 	public Member()
 	{
 		super();
@@ -25,8 +26,7 @@ public class Member extends Person
 
 	public void setStatus(char newStatus)
 	{
-		if (MEMBER_STATUS_VALUES.indexOf(newStatus) < 0)
-			throw new IllegalArgumentException(MEMBER_STATUS_HELP);
+		validator.validateMemberStatus(newStatus);
 		status = newStatus;
 	}
 
@@ -49,12 +49,6 @@ public class Member extends Person
 		return super.toFormattedString() + "\nStatus:         " + status;
 	}
 
+	private Validator validator;
 	private char status;
-
-	private static final String MEMBER_STATUS_VALUES = "AS";
-
-	// Message giving the characters that are valid for the member status
-	public static final String MEMBER_STATUS_HELP = "Member status must be "
-			+ "one of the following characters: A(ctive) or S(uspended)";
-
 }

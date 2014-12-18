@@ -71,23 +71,23 @@ public class VisitController
 	// Finds all the claims for services provided to a given member.
 	public ArrayList<Visit> findByMember(long memberNumber)
 	{
-		ArrayList<Visit> memberClaims = new ArrayList<Visit>();
+		ArrayList<Visit> memberVisits = new ArrayList<Visit>();
 		for(Visit aVisit : visitList )
 			if (aVisit.getMemberNumber() == memberNumber)
-				memberClaims.add(aVisit);
+				memberVisits.add(aVisit);
 
 		//Sort by service date (Use a bubble sort for clarity)
-		for (int i = memberClaims.size() - 1; i > 0; i--)
+		for (int i = memberVisits.size() - 1; i > 0; i--)
 			for (int j = 0; j < i; j++)
-				if (memberClaims.get(j).getServiceDate()
-						.after(memberClaims.get(i).getServiceDate()))
+				if (memberVisits.get(j).getServiceDate()
+						.after(memberVisits.get(i).getServiceDate()))
 				{
-					Visit temp = memberClaims.get(i);
-					memberClaims.set(i, memberClaims.get(j));
-					memberClaims.set(j, temp);
+					Visit temp = memberVisits.get(i);
+					memberVisits.set(i, memberVisits.get(j));
+					memberVisits.set(j, temp);
 				}     
 
-		return memberClaims;
+		return memberVisits;
 	}
 
 	private static final String FILE_NAME = "Visits.txt";

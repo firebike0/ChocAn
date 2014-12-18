@@ -4,10 +4,13 @@ import java.util.Date;
 import java.text.SimpleDateFormat;
 import java.text.ParseException;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 // Entity class that models a visit
 public class Visit 
 {
-
+	
+	
 	// Creates a new visit, and sets the submission date and time to the current system date and time
 	public Visit() 
 	{
@@ -61,16 +64,7 @@ public class Visit
 	
 	public void setServiceCode(String aCode)
 	{
-		if (aCode == null || aCode.length() == 0)
-			throw new IllegalArgumentException("A service code is required");
-		else if (aCode.length() > CODE_LENGTH)
-			throw new IllegalArgumentException("Service code may not be more than " 
-					+ CODE_LENGTH + " digits");
-		else
-			for (int i = 0; i < aCode.length(); i++)
-				if (!Character.isDigit(aCode.charAt(i)))
-					throw new IllegalArgumentException("Service code must consist " 
-							+ "of digits only");
+		validator.validateServiceCode(aCode);
 		serviceCode = aCode;
 	}
 	
@@ -128,14 +122,13 @@ public class Visit
 		setComments(fields[5]);
 	}
 	
+	private Validator validator;
 	private Date submissionDate;
 	private String serviceCode;
 	private long providerNumber;
 	private long memberNumber;
 	private Date serviceDate;	
 	private String comments;
-
-	public static final int CODE_LENGTH = 6;
 
 	private static final String DATE_FORMAT = "MM-dd-yyyy";
 	private static final String DATE_TIME_FORMAT = "MM-dd-yyyy HH-mm-ss";	
