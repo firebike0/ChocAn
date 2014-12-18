@@ -1,5 +1,7 @@
 package mdcs.csc440.chocan.Beans;
 
+import mdcs.csc440.chocan.Beans.Controller.Validator;
+
 // Entity class that models persons that can be providers or members.
 public abstract class Person
 {
@@ -61,13 +63,15 @@ public abstract class Person
 		return email;
 	}
 
+	public Validator validator = new Validator();
 	public void setName(String aName)
 	{
-		if (aName == null || aName.length() == 0)
-			throw new IllegalArgumentException("A name is required");
-		else if (aName.length() > NAME_LENGTH)
-			throw new IllegalArgumentException("Name may not be more than " 
-					+ NAME_LENGTH + " characters");
+		validator.validatePersonName(aName);
+//		if (aName == null || aName.length() == 0)
+//			throw new IllegalArgumentException("A name is required");
+//		else if (aName.length() > NAME_LENGTH)
+//			throw new IllegalArgumentException("Name can not be more than " 
+//					+ NAME_LENGTH + " characters");
 		name = aName;
 	}	
 
@@ -75,7 +79,7 @@ public abstract class Person
 	{
 		if (aStreet == null) aStreet = "";	//Replace null with an empty string
 		else if (aStreet.length() > STREET_LENGTH)
-			throw new IllegalArgumentException("Street may not be more than " 
+			throw new IllegalArgumentException("Street can not be more than " 
 					+ STREET_LENGTH + " characters");
 		street = aStreet;
 	}
@@ -84,7 +88,7 @@ public abstract class Person
 	{
 		if (aCity == null) aCity = "";		//Replace null with an empty string
 		else if (aCity.length() > CITY_LENGTH)
-			throw new IllegalArgumentException("City may not be more than " 
+			throw new IllegalArgumentException("City can not be more than " 
 					+ CITY_LENGTH + " characters");
 		city = aCity;
 	}
@@ -95,15 +99,14 @@ public abstract class Person
 		else if (aState.length() > 0)
 		{
 			if (aState.length() != STATE_LENGTH) 
-				throw new IllegalArgumentException("State must be exactly "
+				throw new IllegalArgumentException("State must be "
 						+ STATE_LENGTH + " letters");
 			//test whether each character is a letter
 			for (int i = 0; i < STATE_LENGTH; i++)
 				if(! Character.isLetter(aState.charAt(i)))
 					throw new IllegalArgumentException("State must be " 
 							+ STATE_LENGTH + " letters only");
-		}		
-
+		}	
 		state = aState;
 	}
 
@@ -114,7 +117,7 @@ public abstract class Person
 		{
 			//test for correct length
 			if (aZip.length() != ZIP_LENGTH) 
-				throw new IllegalArgumentException("Zip code must be exactly " 
+				throw new IllegalArgumentException("Zip code must be " 
 						+ ZIP_LENGTH + " digits");
 
 			//test whether each character is a digit
