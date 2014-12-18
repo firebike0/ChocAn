@@ -77,7 +77,7 @@ public class VisitSubmitter
 			
 			visits.add(aVisit);
 			//Display success confirmation and service fee
-			ui.message("Your claim has been submitted successfully.");
+			ui.message("Your visit has been submitted successfully.");
 			ui.message("Service fee due to you: " + ui.formatAsCurrency(theService.getFee()));
 
 			services.close();

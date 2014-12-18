@@ -33,7 +33,7 @@ public class ProviderInterface
 			choice = ui.menu(menuText); 
 			switch(choice)
 			{
-			//Use case Verify Member followed optionally by Submit claim
+			//Use case Verify Member followed optionally by Submit visit
 			case 1: verifyMember(); break;
 			//Use case Receive Provider Directory
 			case 2: receiveDirectory(); break;
@@ -73,7 +73,7 @@ public class ProviderInterface
 
 	}
 
-	//Verify Member and Submit Claim use cases
+	//Verify Member and Submit Visit use cases
 	private void verifyMember()
 	{
 		try

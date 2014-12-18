@@ -30,7 +30,7 @@ public class MemberReportGenerator
 
 		try
 		{						
-			//create and open the claims, providers and services collections
+			//create and open the visits, providers and services collections
 			visits = new VisitController();
 			visits.open();
 			providers = new ProviderController();

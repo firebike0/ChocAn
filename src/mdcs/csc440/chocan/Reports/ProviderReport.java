@@ -12,7 +12,7 @@ public class ProviderReport extends DateRangeReport
 	{
 		super(anEndDate);   
 		
-		addHeading("Claim Submissions");		
+		addHeading("Visit Submissions");		
 
 		//Add date and provider details
 		String dateString = dateFormatter.format(getEndDate());
