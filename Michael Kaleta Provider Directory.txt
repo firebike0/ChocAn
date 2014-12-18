@@ -1,0 +1,11 @@
+                              Chocoholics Anonymous                             
+
+             Provider Directory 
+
+Service Name              Code          Fee 
+------------              ----          --- 
+Acupuncture               839505     $35.00 
+Aerobic Exercise          883948     $15.00 
+Dietian Session           598470     $13.37 
+Intervention              156648     $23.00 
+
