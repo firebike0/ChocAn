@@ -6,7 +6,7 @@ Week Ending: 12-19-2014
 
 Provider Number   Consultations           Fee  Provider Name
 ---------------   -------------    ----------  -------------
-      100000000               2        $48.37  Michael Kaleta
+      100000000               5       $109.37  Michael Kaleta
 ---------------   -------------    ----------  -------------
-Totals:                       2        $48.37     1
+Totals:                       5       $109.37     1
 

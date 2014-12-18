@@ -11,5 +11,8 @@ Member Name: John Wentworth                   Address: 2293 Peck Street
 
 Service Date    Service               Provider
 ------------    -------               --------
+  11-01-2014    Aerobic Exercise      Michael Kaleta
+  12-01-2014    Intervention          Michael Kaleta
+  12-04-2014    Intervention          Michael Kaleta
   12-17-2014    Dietian Session       Michael Kaleta
 

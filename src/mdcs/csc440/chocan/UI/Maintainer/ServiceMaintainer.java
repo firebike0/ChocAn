@@ -8,8 +8,7 @@ import mdcs.csc440.chocan.Beans.Service;
 import mdcs.csc440.chocan.Beans.Controller.ServiceController;
 import mdcs.csc440.chocan.UI.UserInterface;
 
-//Control class to co-ordinate the use case Maintain Service.  A Service can be added, updated or deleted.
-
+//Control class to coordinate the use case Maintain Service.  A Service can be added, updated or deleted.
 
 public class ServiceMaintainer
 {
